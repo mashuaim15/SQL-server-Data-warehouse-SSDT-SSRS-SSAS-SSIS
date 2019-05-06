@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <rd:DataSourceID>4b5bd9c7-f47c-42da-90db-f4e53d87e6aa</rd:DataSourceID>
+      <DataSourceReference>DataSource1</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <rd:ReportID>03fff273-c73f-4faa-a136-dc397502bc39</rd:ReportID>
+  <Width>5in</Width>
+  <Body>
+    <Height>0.74in</Height>
+    <ColumnSpacing>0.5in</ColumnSpacing>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <Style>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontSize>18pt</FontSize>
+          <Color>#365838</Color>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Value>Report11</Value>
+        <CanGrow>true</CanGrow>
+        <Height>0.33in</Height>
+      </Textbox>
+      <Table Name="table1">
+        <Top>0.33in</Top>
+        <Style />
+        <Header>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <Style>
+                        <BackgroundColor>#365838</BackgroundColor>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>White</Color>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <BorderColor>
+                          <Default>DarkGray</Default>
+                        </BorderColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <Value>Product Model</Value>
+                      <CanGrow>true</CanGrow>
+                      <Height>0.22in</Height>
+                      <Width>1in</Width>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <Style>
+                        <BackgroundColor>#365838</BackgroundColor>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>White</Color>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <BorderColor>
+                          <Default>DarkGray</Default>
+                        </BorderColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <Value>Quarter</Value>
+                      <CanGrow>true</CanGrow>
+                      <Height>0.22in</Height>
+                      <Width>1in</Width>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox4">
+                      <Style>
+                        <BackgroundColor>#365838</BackgroundColor>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>White</Color>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <BorderColor>
+                          <Default>DarkGray</Default>
+                        </BorderColor>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <Value>Sales Price</Value>
+                      <CanGrow>true</CanGrow>
+                      <Height>0.22in</Height>
+                      <Width>1in</Width>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.22in</Height>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Product_Model">
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <BorderColor>
+                          <Default>DarkGray</Default>
+                        </BorderColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <rd:DefaultName>Product_Model</rd:DefaultName>
+                      <Value>=Fields!Product_Model.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Height>0.19in</Height>
+                      <Width>1in</Width>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Quarter">
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <BorderColor>
+                          <Default>DarkGray</Default>
+                        </BorderColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <rd:DefaultName>Quarter</rd:DefaultName>
+                      <Value>=Fields!Quarter.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Height>0.19in</Height>
+                      <Width>1in</Width>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Sales_Price">
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <BorderColor>
+                          <Default>DarkGray</Default>
+                        </BorderColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <rd:DefaultName>Sales_Price</rd:DefaultName>
+                      <Value>=Fields!Sales_Price.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Height>0.19in</Height>
+                      <Width>1in</Width>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.19in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <TableColumns>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+        </TableColumns>
+        <DataSetName>DataSet1</DataSetName>
+      </Table>
+    </ReportItems>
+  </Body>
+  <Language>en-US</Language>
+  <LeftMargin>1in</LeftMargin>
+  <RightMargin>1in</RightMargin>
+  <TopMargin>1in</TopMargin>
+  <BottomMargin>1in</BottomMargin>
+  <PageWidth>8.5in</PageWidth>
+  <PageHeight>11in</PageHeight>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Fields>
+        <Field Name="Product_Model">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Product].[Product Model].[Product Model]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Quarter">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Date].[Quarter].[Quarter]" /&gt;</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sales_Price">
+          <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Sales Price]" /&gt;</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandType>Text</CommandType>
+        <CommandText>select [Measures].[Sales Price] on 0,
+
+non empty 
+
+order (
+([Product].[Product Model].children,[Date].[quarter].children),
+[Date].[Quarter],BDESC) on 1
+
+from [sales orders cube]</CommandText>
+        <Timeout>0</Timeout>
+        <rd:DesignerState>
+          <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>MDX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Product</DimensionName>
+                      <HierarchyName>Product Model</HierarchyName>
+                      <HierarchyUniqueName>[Product].[Product Model]</HierarchyUniqueName>
+                      <LevelName>Product Model</LevelName>
+                      <UniqueName>[Product].[Product Model].[Product Model]</UniqueName>
+                    </ID>
+                    <ItemCaption>Product Model</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Date</DimensionName>
+                      <HierarchyName>Quarter</HierarchyName>
+                      <HierarchyUniqueName>[Date].[Quarter]</HierarchyUniqueName>
+                      <LevelName>Quarter</LevelName>
+                      <UniqueName>[Date].[Quarter].[Quarter]</UniqueName>
+                    </ID>
+                    <ItemCaption>Quarter</ItemCaption>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>Sales Price</MeasureName>
+                      <UniqueName>[Measures].[Sales Price]</UniqueName>
+                    </ID>
+                    <ItemCaption>Sales Price</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <From>sales orders cube</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>select [Measures].[Sales Price] on 0,
+
+non empty 
+
+order (
+([Product].[Product Model].children,[Date].[quarter].children),
+[Date].[Quarter],BDESC) on 1
+
+from [sales orders cube]
+
+</Statement>
+              <ParameterDefinitions />
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

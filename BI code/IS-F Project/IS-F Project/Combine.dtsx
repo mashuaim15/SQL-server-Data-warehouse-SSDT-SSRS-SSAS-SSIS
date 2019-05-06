@@ -1,0 +1,1420 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="demo-PC\demo"
+  DTS:CreatorComputerName="DEMO-PC"
+  DTS:CreationDate="4/20/2019 8:39:03 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{EC9C97DE-C597-4BCC-9F55-78989F69ACD9}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Combine"
+  DTS:DTSID="{0CD2C5BE-009E-430B-AB04-C56026B3EE1E}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.SalesOrders]"
+      DTS:ObjectName="localhost.SalesOrders"
+      DTS:DTSID="{80F3F52C-A8DB-4EA5-8BCA-C81E7E09C570}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=SalesOrders;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Union"
+      DTS:ExecutableType="{5918251B-2970-45A4-AB5F-01C3C588FE5A}"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Union"
+      DTS:DTSID="{B988172D-C7D8-4FB9-BF9F-211156AA8FAF}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="{5918251B-2970-45A4-AB5F-01C3C588FE5A}">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Union\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[Union]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Union\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[localhost.SalesOrders]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.SalesOrders]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Order Item ID]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Item ID]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order Item ID]"
+                      cachedName="Order Item ID"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Order ID]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order ID]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      cachedName="Order ID"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Customer ID]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Customer ID]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer ID]"
+                      cachedName="Customer ID"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Order Date Key]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date Key]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order Date Key]"
+                      cachedName="Order Date Key"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product ID]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Product ID]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
+                      cachedName="Product ID"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unit Price]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Unit Price]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      cachedName="Unit Price"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Quantity]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      cachedName="Quantity"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discount rate]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Discount rate]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount rate]"
+                      cachedName="Discount rate"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Full Price]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Full Price]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Full Price]"
+                      cachedName="Full Price"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Shipping]"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Shipping]"
+                      externalMetadataColumnId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipping]"
+                      cachedName="Shipping"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order Item ID]"
+                      name="Order Item ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      name="Order ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer ID]"
+                      name="Customer ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order Date Key]"
+                      name="Order Date Key"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
+                      name="Product ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      name="Unit Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount rate]"
+                      name="Discount rate"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Full Price]"
+                      name="Full Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipping]"
+                      name="Shipping"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Union\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Order2017$]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Union\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[localhost.SalesOrders]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.SalesOrders]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Item ID]"
+                      name="Order Item ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Item ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order Item ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      name="Order ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      name="Customer ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Customer ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Date Key]"
+                      name="Order Date Key"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Date Key]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order Date Key]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      name="Order Date"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order Date]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      name="Product ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Price]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discount rate]"
+                      name="Discount rate"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discount rate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Discount rate]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Full Price]"
+                      name="Full Price"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Full Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Full Price]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Shipping]"
+                      name="Shipping"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Shipping]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Shipping]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order Item ID]"
+                      name="Order Item ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order ID]"
+                      name="Order ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Customer ID]"
+                      name="Customer ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order Date Key]"
+                      name="Order Date Key"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Order Date]"
+                      name="Order Date"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product ID]"
+                      name="Product ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Unit Price]"
+                      name="Unit Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Discount rate]"
+                      name="Discount rate"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Full Price]"
+                      name="Full Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Shipping]"
+                      name="Shipping"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order Item ID]"
+                      name="Order Item ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order Item ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order ID]"
+                      name="Order ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Customer ID]"
+                      name="Customer ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Customer ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order Date Key]"
+                      name="Order Date Key"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order Date Key]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order Date]"
+                      name="Order Date"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Order Date]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product ID]"
+                      name="Product ID"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Unit Price]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Discount rate]"
+                      name="Discount rate"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Discount rate]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Full Price]"
+                      name="Full Price"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Full Price]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Shipping]"
+                      name="Shipping"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Shipping]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\OLE DB Source 1"
+              name="OLE DB Source 1"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Order2018$]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Union\OLE DB Source 1.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[localhost.SalesOrders]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.SalesOrders]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Item ID]"
+                      name="Order Item ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Item ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order Item ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      name="Order ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      name="Customer ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Customer ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Date Key]"
+                      name="Order Date Key"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Date Key]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order Date Key]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      name="Order Date"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order Date]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      name="Product ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Product ID]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Unit Price]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Quantity]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Discount rate]"
+                      name="Discount rate"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Discount rate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Discount rate]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Full Price]"
+                      name="Full Price"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Full Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Full Price]" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Shipping]"
+                      name="Shipping"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Shipping]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Shipping]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order Item ID]"
+                      name="Order Item ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order ID]"
+                      name="Order ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Customer ID]"
+                      name="Customer ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order Date Key]"
+                      name="Order Date Key"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Order Date]"
+                      name="Order Date"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Product ID]"
+                      name="Product ID"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Unit Price]"
+                      name="Unit Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Discount rate]"
+                      name="Discount rate"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Full Price]"
+                      name="Full Price"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Shipping]"
+                      name="Shipping"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order Item ID]"
+                      name="Order Item ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order Item ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order ID]"
+                      name="Order ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Customer ID]"
+                      name="Customer ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Customer ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order Date Key]"
+                      name="Order Date Key"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order Date Key]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order Date]"
+                      name="Order Date"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Order Date]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Product ID]"
+                      name="Product ID"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Product ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Unit Price]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Discount rate]"
+                      name="Discount rate"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Discount rate]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Full Price]"
+                      name="Full Price"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Full Price]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Shipping]"
+                      name="Shipping"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Shipping]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Union\Union All"
+              name="Union All"
+              componentClassID="{B594E9A8-4351-4939-891C-CFE1AB93E925}"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              version="1"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <inputs>
+                <input
+                  refId="Package\Union\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Order Item ID]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Item ID]"
+                      cachedName="Order Item ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Item ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Order ID]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      cachedName="Order ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Customer ID]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      cachedName="Customer ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Customer ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Order Date Key]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Date Key]"
+                      cachedName="Order Date Key"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date Key]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Order Date]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      cachedName="Order Date"
+                      cachedDataType="dbTimeStamp">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Product ID]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      cachedName="Product ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Product ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Unit Price]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      cachedName="Unit Price"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Unit Price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Quantity]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      cachedName="Quantity"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Quantity]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Discount rate]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discount rate]"
+                      cachedName="Discount rate"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Discount rate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Full Price]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Full Price]"
+                      cachedName="Full Price"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Full Price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 1].Columns[Shipping]"
+                      lineageId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output].Columns[Shipping]"
+                      cachedName="Shipping"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Shipping]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Union\Union All.Inputs[Union All Input 2]"
+                  name="Union All Input 2"
+                  hasSideEffects="true">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Order Item ID]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Item ID]"
+                      cachedName="Order Item ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Item ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Order ID]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      cachedName="Order ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Customer ID]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      cachedName="Customer ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Customer ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Order Date Key]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Date Key]"
+                      cachedName="Order Date Key"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date Key]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Order Date]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      cachedName="Order Date"
+                      cachedDataType="dbTimeStamp">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Product ID]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      cachedName="Product ID"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Product ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Unit Price]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      cachedName="Unit Price"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Unit Price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Quantity]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      cachedName="Quantity"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Quantity]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Discount rate]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Discount rate]"
+                      cachedName="Discount rate"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Discount rate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Full Price]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Full Price]"
+                      cachedName="Full Price"
+                      cachedDataType="r8">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Full Price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Union\Union All.Inputs[Union All Input 2].Columns[Shipping]"
+                      lineageId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Shipping]"
+                      cachedName="Shipping"
+                      cachedDataType="wstr"
+                      cachedLength="255">
+                      <properties>
+                        <property
+                          name="OutputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          containsID="true">#{Package\Union\Union All.Outputs[Union All Output 1].Columns[Shipping]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Union\Union All.Inputs[Union All Input 3]"
+                  name="Union All Input 3"
+                  hasSideEffects="true"
+                  dangling="true">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Union\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Item ID]"
+                      name="Order Item ID"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Item ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order ID]"
+                      name="Order ID"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Customer ID]"
+                      name="Customer ID"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Customer ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date Key]"
+                      name="Order Date Key"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date Key]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date]"
+                      name="Order Date"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Order Date]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Product ID]"
+                      name="Product ID"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Product ID]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Unit Price]"
+                      name="Unit Price"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Unit Price]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Quantity]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Discount rate]"
+                      name="Discount rate"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Discount rate]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Full Price]"
+                      name="Full Price"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Full Price]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Shipping]"
+                      name="Shipping"
+                      lineageId="Package\Union\Union All.Outputs[Union All Output 1].Columns[Shipping]"
+                      length="255"
+                      dataType="wstr" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Union.Paths[OLE DB Source Output1]"
+              name="OLE DB Source Output"
+              startId="Package\Union\OLE DB Source 1.Outputs[OLE DB Source Output]"
+              endId="Package\Union\Union All.Inputs[Union All Input 2]" />
+            <path
+              refId="Package\Union.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Union\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\Union\Union All.Inputs[Union All Input 1]" />
+            <path
+              refId="Package\Union.Paths[Union All Output 1]"
+              name="Union All Output 1"
+              startId="Package\Union\Union All.Outputs[Union All Output 1]"
+              endId="Package\Union\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="107,42"
+          Id="Package\Union"
+          TopLeft="39.5,1.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Union">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Union\OLE DB Source"
+          TopLeft="168,53" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Union\OLE DB Source 1"
+          TopLeft="410,51" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Union\OLE DB Destination"
+          TopLeft="378,243" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Union\Union All"
+          TopLeft="306,142" />
+        <EdgeLayout
+          Id="Package\Union.Paths[OLE DB Source Output]"
+          TopLeft="243.5,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="123.5,47"
+              Start="0,0"
+              End="123.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="119.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="119.5,23.5"
+                    Point2="123.5,23.5"
+                    Point3="123.5,27.5" />
+                  <mssgle:LineSegment
+                    End="123.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Union.Paths[OLE DB Source Output1]"
+          TopLeft="490,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104,49"
+              Start="0,0"
+              End="-104,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.0194174757282" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.0194174757282"
+                    Point2="0,29.0194174757282"
+                    Point3="-4,29.0194174757282" />
+                  <mssgle:LineSegment
+                    End="-100,29.0194174757282" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100,29.0194174757282"
+                    Point2="-104,29.0194174757282"
+                    Point3="-104,33.0194174757282" />
+                  <mssgle:LineSegment
+                    End="-104,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Union.Paths[Union All Output 1]"
+          TopLeft="367,184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97,59"
+              Start="0,0"
+              End="97,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="93,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93,29.5"
+                    Point2="97,29.5"
+                    Point3="97,33.5" />
+                  <mssgle:LineSegment
+                    End="97,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Union\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Union\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Union\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

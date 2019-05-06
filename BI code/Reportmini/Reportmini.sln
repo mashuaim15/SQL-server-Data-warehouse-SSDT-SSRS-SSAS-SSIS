@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reportmini", "Reportmini\Reportmini.rptproj", "{98ABDF03-283C-4A36-9A68-67E3D228B5B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.Debug|Default.ActiveCfg = Debug
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.Debug|Default.Build.0 = DebugLocal
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.Debug|Default.Deploy.0 = DebugLocal
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.DebugLocal|Default.Build.0 = DebugLocal
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.Release|Default.ActiveCfg = Release
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.Release|Default.Build.0 = Release
+		{98ABDF03-283C-4A36-9A68-67E3D228B5B9}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
